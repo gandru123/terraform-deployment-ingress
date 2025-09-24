@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: replica-pod
+  name: replica-pod-neural
   labels:
     app: css-temp
   namespace: dev-namespace
