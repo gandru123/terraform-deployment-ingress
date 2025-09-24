@@ -24,7 +24,7 @@ spec:
         app: html-glass
     spec:
       containers:
-        - name: css-image
+        - name: css-image-vil
           image: gandru/villagehtml:village-app
           startupProbe:
             httpGet:

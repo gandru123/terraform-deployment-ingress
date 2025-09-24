@@ -25,7 +25,7 @@ spec:
         app: html-neural
     spec:
       containers:
-        - name: css-image
+        - name: css-image-neural
           image: gandru/villagehtml:latest
           startupProbe:
             httpGet:
