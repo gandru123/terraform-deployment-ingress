@@ -17,12 +17,12 @@ spec:
               service:
                 name: sv-neural
                 port:
-                  targetPort: 80
+                  number: 80
           - path: /
             pathType: Prefix
             backend:
               service:
                 name: sv-market
                 port:
-                  targetPort: 80
+                  number: 80
                   
