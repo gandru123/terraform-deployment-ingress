@@ -6,7 +6,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: html
+    app: html-neural
   ports:
     - port: 80
       targetPort: 80
