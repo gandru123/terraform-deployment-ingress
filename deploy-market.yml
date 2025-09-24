@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: replica-pod
+  labels:
+    app: css-temp
+  namespace: dev-namespace
+  annotations:
+    kubernetes.io/change-cause: "glass-1"
+spec:
+  minReadySeconds: 6
+  replicas: 4
+  selector:
+    matchLabels:
+      app: html-glass
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: html-glass
+    spec:
+      containers:
+        - name: css-image-vil
+          image: gandru/villagehtml:village-app
+          startupProbe:
+            httpGet:
+              path: "/"
+              port: 80         
+          livenessProbe:
+            httpGet:
+              path: "/"
+              port: 80
+          readinessProbe:
+            exec:
+              command:
+                - "echo"
+                - "hi"
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "1500Mi"
+            limits:
+              cpu: "1000m"
+              memory: "2500Mi"
