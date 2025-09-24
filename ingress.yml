@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: replica-pod
+  annotations: 
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  rules:
+    - host: www.yourfeatureworld.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sv-neural
+                port:
+                  targetPort: 80
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sv-market
+                port:
+                  targetPort: 80
+                  
