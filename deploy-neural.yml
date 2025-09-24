@@ -13,7 +13,7 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      app: paru
+      app: html
   strategy:
     type: RollingUpdate
     rollingUpdate:
